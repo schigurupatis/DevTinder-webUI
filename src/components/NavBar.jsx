@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 
 const NavBar = () => {
   const user = useSelector((store) => store.user);
-  console.log("data from navbar: ", user);
+  //console.log("data from navbar: ", user);
 
   return (
     <>

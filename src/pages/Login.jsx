@@ -22,7 +22,7 @@ const Login = () => {
         withCredentials: true,
       }
     );
-      console.log("Response from FE is:", res.data);
+      //console.log("Response from FE is:", res.data);
       dispatch(addUser(res.data));
       navigate("/")
     } catch(err) {

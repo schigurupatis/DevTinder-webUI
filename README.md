@@ -24,4 +24,10 @@
 - - Configured appStore and "Provider" & passed this appStore in app.jsx above BrowserRouter to access by app
 - - Configured userSlice with "reducer" & "actions"(addUser, removeUser)
 - - Subscribed to Store with "useSelector" to show LoggedIn User data in Navbar(name & photoUrl)
-- - 
+
+
+
+## PART - 3
+
+- Fetching the current loggedin user profile/view API when user loggedin in body component
+- 

@@ -12,9 +12,9 @@ const NavBar = () => {
   </div>
   <div className="flex-none gap-2">
     
-    <div className="dropdown dropdown-end flex items-center gap-4">
+    <div className="dropdown dropdown-end">
       {user && (
-        <>
+        <div className="flex items-center gap-4">
           <p className="m-0">Wellcome, {user.firstName} {user.lastName}</p>
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
@@ -23,7 +23,7 @@ const NavBar = () => {
                 src={user.photoURL} />
             </div>
           </div>
-        </>
+        </div>
       )}
       <ul
         tabIndex={0}

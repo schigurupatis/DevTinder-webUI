@@ -30,4 +30,8 @@
 ## PART - 3
 
 - Fetching the current loggedin user profile/view API when user loggedin in body component
+- If user not loggedin then restricted user to access other routes(pages) using err.status(400) while catching error
+- if token is not present then redirecting user to login page from body component
+- Bulding Logout working in FrontEnd
+- Created Profile page with all details of loggedin user
 - 

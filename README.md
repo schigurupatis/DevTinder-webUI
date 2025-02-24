@@ -33,5 +33,6 @@
 - If user not loggedin then restricted user to access other routes(pages) using err.status(400) while catching error
 - if token is not present then redirecting user to login page from body component
 - Bulding Logout working in FrontEnd
+- Added FrontEnd validations using formik & yup libraries
 - Created Profile page with all details of loggedin user
 - 

@@ -13,8 +13,9 @@ const Body = () => {
   const userData = useSelector(store => store.user)
 
   const fetchUser = async () => {
+    if (userData) return;
     try{
-      if (userData) return;
+      //if (userData && Object.keys(userData).length > 0) return;
       const res = await axios.get(BASE_URL + "/profile/view", 
         {
           withCredentials: true,
@@ -23,7 +24,7 @@ const Body = () => {
       dispatch(addUser(res.data));
 
     }catch(err) {
-      if(err.status === 401) {
+      if(err.response && err.response.status === 401) {
         navigate("/login");
       }
       console.log("Error is:", err);
@@ -31,6 +32,7 @@ const Body = () => {
   }
 
   useEffect(() => {
+    if (!userData) return;
     fetchUser();
   }, []);
 

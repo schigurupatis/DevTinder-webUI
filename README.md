@@ -37,4 +37,5 @@
 - Created Profile page with all details of loggedin user
 - Created Feed component to show data of all users
 - Stored Feed data in Redux
-- 
+- Edit Profile component created with form fields & onload prefilled current loggedin user data
+- Worked with PUT

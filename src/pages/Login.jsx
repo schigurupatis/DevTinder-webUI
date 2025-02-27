@@ -24,7 +24,7 @@ const Login = () => {
       }
     );
       console.log("LoggedIn User is in LogIn Page:", res.data);
-      dispatch(addUser(res?.data));
+      dispatch(addUser(res.data));
       navigate("/")
     } catch(err) {
       setError(err?.response?.data || "something went wrong");

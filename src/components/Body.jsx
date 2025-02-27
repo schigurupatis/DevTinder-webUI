@@ -19,12 +19,11 @@ const Body = () => {
         withCredentials: true,
       });
       dispatch(addUser(res.data));
-      console.log("LoggedIn user data:", userData);
     } catch (err) {
       if (err.status === 401) {
         navigate("/login");
       }
-      //console.error(err);
+      console.error(err);
     }
   };
 

@@ -35,4 +35,5 @@
 - Bulding Logout working in FrontEnd
 - Added FrontEnd validations using formik & yup libraries
 - Created Profile page with all details of loggedin user
+- Created Feed component to show data of all users
 - 

@@ -57,22 +57,22 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  // if (!feed) return;
+  if (!feed) return;
 
-  // if (feed.length <= 0)
-  //   return <h1 className="flex justify-center my-10">No new users founds!</h1>;
+  if (feed.length <= 0)
+    return <h1 className="flex justify-center my-10">No new users founds!</h1>;
 
   return (
-    <>
+    <div className="flex justify-center mt-4 flex-col items-center">
       {/* <UserCard user={feed[0]} /> */}
-      <p>Feed data here</p>
-      {/* {feed && (
+      <h1 className="text-2xl">Feed data here</h1>
+      {feed && (
           <div className="flex justify-center my-10">
             <UserCard user={feed[0]} />
           </div>
         )
-      } */}
-    </>
+      }
+    </div>
   )
 }
 

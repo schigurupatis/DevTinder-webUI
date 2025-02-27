@@ -3,7 +3,7 @@
 const UserCard = ({user}) => {
     if(!user) return <p>No user data avilable</p>
     const { about, age, emailId, firstName, lastName, gender, photoURL, skills } = user;
-    console.log("user data from card:", user);
+    console.log("user data from usercard:", user);
   return (
     <div className='flex justify-center items-center'>
         <div className="card card-compact bg-white text-black w-96 shadow-xl">
@@ -17,10 +17,10 @@ const UserCard = ({user}) => {
   <div className="card-body">
     <h2 className="card-title">{firstName + " " + lastName}</h2>
     <p>{about}</p>
-    <p>{age + " " + gender}</p>
+    <p>{age && gender && age + " " + gender}</p>
     {/* Skills Section */}
     <div className="flex flex-wrap gap-2">
-      {skills?.map((skill, index) => (
+      {skills && skills?.map((skill, index) => (
         <span key={skill} className="badge badge-info px-2 py-1 text-white">
           {skill}
         </span>
@@ -28,7 +28,7 @@ const UserCard = ({user}) => {
     </div>
     <div className="card-actions justify-end mt-5">
       <button className="btn btn-success text-white">
-        Accept
+        Interested
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
@@ -45,7 +45,7 @@ const UserCard = ({user}) => {
         </svg>
       </button>
       <button className="btn btn-error text-white">
-        Reject
+        Ignore
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"

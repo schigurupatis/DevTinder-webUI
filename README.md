@@ -36,4 +36,5 @@
 - Added FrontEnd validations using formik & yup libraries
 - Created Profile page with all details of loggedin user
 - Created Feed component to show data of all users
+- Stored Feed data in Redux
 - 

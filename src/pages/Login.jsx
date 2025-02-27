@@ -24,7 +24,7 @@ const Login = () => {
       }
     );
       //console.log("Response from FE is:", res.data);
-      dispatch(addUser(res.data));
+      dispatch(addUser(res?.data));
       navigate("/")
     } catch(err) {
       setError(err?.response?.data || "something went wrong");

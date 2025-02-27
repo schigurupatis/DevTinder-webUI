@@ -3,35 +3,75 @@ import { BASE_URL } from "../utils/constants"
 import { useDispatch, useSelector } from "react-redux"
 import { addFeed } from "../utils/feedSlice";
 import { useEffect } from "react";
-// import UserCard from "../components/UserCard";
+import UserCard from "../components/UserCard";
 
 const Feed = () => {
+  // const feed = useSelector((store) => store.feed);
+  // const dispatch = useDispatch();
+
+  // const getFeed = async () => {
+  //   if (feed) return; 
+  //   try {
+  //     const res = await axios.get(BASE_URL + "/feed", {
+  //       withCredentials: true,
+  //     });
+  //     dispatch(addFeed(res?.data?.data));
+  //     console.log("feed data:", feed);
+  //   } catch (err) {
+  //     console.log(err);
+  //   } 
+
+  // }
+
+  // useEffect(()=> {
+  //   getFeed();
+  //   console.log("feed data outside:", feed)
+  // }, []);
+
+
+  // if (!feed) return;
+
+  // if (feed.length <= 0)
+  //   return <h1 className="flex justify-center my-10">No new users founds!</h1>;
+
+
+
+
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
 
   const getFeed = async () => {
-    //if (feed.length) return; // Check if feed already has data
+    if (feed) return; 
     try {
       const res = await axios.get(BASE_URL + "/feed", {
         withCredentials: true,
-      });
+      })
+      console.log("Feed data is here:", res);
       dispatch(addFeed(res?.data));
-      console.log("feed data:", feed);
-    } catch (err) {
-      console.log(err);
-    } 
-
+    } catch(err) {
+      console.log("error is:", err);
+    }
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     getFeed();
   }, []);
 
+  // if (!feed) return;
+
+  // if (feed.length <= 0)
+  //   return <h1 className="flex justify-center my-10">No new users founds!</h1>;
 
   return (
     <>
       {/* <UserCard user={feed[0]} /> */}
-      <h1>feed data will comes here</h1>
+      <p>Feed data here</p>
+      {/* {feed && (
+          <div className="flex justify-center my-10">
+            <UserCard user={feed[0]} />
+          </div>
+        )
+      } */}
     </>
   )
 }

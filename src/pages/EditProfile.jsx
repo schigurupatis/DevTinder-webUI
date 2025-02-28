@@ -5,15 +5,17 @@ import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
-const EditProfile = () => {
+const EditProfile = ({userdata}) => {
+  //console.log("prefilled userdata is:", userdata)
+  //const {firstName, lastName, age, gender, about, photoURL, skills} = userdata;
 
-    const [firstName, setfirstName] = useState("");
-    const [lastName, setlastName] = useState("");
-    const [age, setage] = useState("");
-    const [gender, setgender] = useState("");
-    const [about, setabout] = useState("");
-    const [photoURL, setphotoURL] = useState("");
-    const [skills, setskills] = useState("");
+    const [firstName, setfirstName] = useState(userdata.firstName);
+    const [lastName, setlastName] = useState(userdata.lastName);
+    const [age, setage] = useState(userdata.age);
+    const [gender, setgender] = useState(userdata.gender);
+    const [about, setabout] = useState(userdata.about);
+    const [photoURL, setphotoURL] = useState(userdata.photoURL);
+    const [skills, setskills] = useState(userdata.skills);
     const [error, setError] = useState("");
 
   const dispatch = useDispatch();

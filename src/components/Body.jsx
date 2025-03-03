@@ -6,7 +6,6 @@ import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useEffect } from "react";
-//import { addFeed } from "../utils/feedSlice";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -20,7 +19,6 @@ const Body = () => {
         withCredentials: true,
       });
       dispatch(addUser(res.data));
-      //dispatch(addFeed(userData));
     } catch (err) {
       if (err.status === 401) {
         navigate("/login");

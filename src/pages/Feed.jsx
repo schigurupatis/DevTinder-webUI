@@ -13,11 +13,11 @@ const Feed = () => {
   const getFeed = async () => {
     if (feed) return; 
     try {
-      const res = await axios.get(BASE_URL + "/feed", {
+      const res = await axios.get(BASE_URL + "/user/feed", {
         withCredentials: true,
       })
       console.log("All Feed data is here:", res.data);
-      dispatch(addFeed(res?.data));
+      dispatch(addFeed(res?.data?.data));
     } catch(err) {
       console.log("error is:", err);
     }

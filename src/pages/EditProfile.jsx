@@ -4,27 +4,28 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import UserCard from "../components/UserCard";
 
-const EditProfile = ({userdata}) => {
-  //console.log("prefilled userdata is:", userdata)
-  //const {firstName, lastName, age, gender, about, photoURL, skills} = userdata;
+const EditProfile = ({user}) => {
+  //console.log("prefilled user is:", user)
+  //const {firstName, lastName, age, gender, about, photoURL, skills} = user;
 
-    const [firstName, setfirstName] = useState(userdata.firstName);
-    const [lastName, setlastName] = useState(userdata.lastName);
-    const [age, setage] = useState(userdata.age);
-    const [gender, setgender] = useState(userdata.gender);
-    const [about, setabout] = useState(userdata.about);
-    const [photoURL, setphotoURL] = useState(userdata.photoURL);
-    const [skills, setskills] = useState(userdata.skills);
+    const [firstName, setfirstName] = useState(user.firstName);
+    const [lastName, setlastName] = useState(user.lastName);
+    const [age, setage] = useState(user.age);
+    const [gender, setgender] = useState(user.gender);
+    const [about, setabout] = useState(user.about);
+    const [photoURL, setphotoURL] = useState(user.photoURL);
+    const [skills, setskills] = useState(user.skills);
     const [error, setError] = useState("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
-  const handleUpdate = async () => {
+  const saveProfile = async () => {
 
     try{
-      const res = await axios.post(BASE_URL + "/profile/edit", {
+      const res = await axios.patch(BASE_URL + "/profile/edit", {
         firstName,
         lastName,
         age,
@@ -37,16 +38,18 @@ const EditProfile = ({userdata}) => {
       }
     );
       console.log("LoggedIn User is in LogIn Page:", res.data);
-      dispatch(addUser(res?.data));
-      navigate("/")
+      dispatch(addUser(res?.data?.data));
+      //navigate("/")
     } catch(err) {
       setError(err?.response?.data || "something went wrong");
     }
   }
 
 
+
+
   return (
-    <>
+    <div className="flex justify-center items-center gap-5">
         <div className="flex justify-center items-center my-10"> 
         <div className="card bg-neutral text-neutral-content w-96">
   <div className="card-body items-center text-center">
@@ -76,12 +79,13 @@ const EditProfile = ({userdata}) => {
    </div>
    <p className="text-error">{error}</p>
     <div className="flex justify-center w-full">
-      <button className="btn btn-primary w-full" onClick={handleUpdate}>Update Profile</button>
+      <button className="btn btn-primary w-full" onClick={saveProfile}>Save Profile</button>
     </div>
   </div>
 </div>
     </div>
-    </>
+    <UserCard user={{about, age, firstName, lastName, gender, photoURL, skills}} />
+    </div>
   )
 }
 

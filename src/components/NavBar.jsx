@@ -6,6 +6,7 @@ import { removeUser } from "../utils/userSlice";
 
 const NavBar = () => {
   const user = useSelector((store) => store.user);
+
   //console.log("data from navbar: ", user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const NavBar = () => {
             <span className="badge">New</span>
           </Link>
         </li>
-        <li><Link to="/edit">Edit</Link></li>
+        {/* <li><Link to="/edit">Edit</Link></li> */}
         <li><Link onClick={handleLogout}>Logout</Link></li>
       </ul>
       </>

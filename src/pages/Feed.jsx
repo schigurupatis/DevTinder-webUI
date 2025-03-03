@@ -6,36 +6,6 @@ import { useEffect } from "react";
 import UserCard from "../components/UserCard";
 
 const Feed = () => {
-  // const feed = useSelector((store) => store.feed);
-  // const dispatch = useDispatch();
-
-  // const getFeed = async () => {
-  //   if (feed) return; 
-  //   try {
-  //     const res = await axios.get(BASE_URL + "/feed", {
-  //       withCredentials: true,
-  //     });
-  //     dispatch(addFeed(res?.data?.data));
-  //     console.log("feed data:", feed);
-  //   } catch (err) {
-  //     console.log(err);
-  //   } 
-
-  // }
-
-  // useEffect(()=> {
-  //   getFeed();
-  //   console.log("feed data outside:", feed)
-  // }, []);
-
-
-  // if (!feed) return;
-
-  // if (feed.length <= 0)
-  //   return <h1 className="flex justify-center my-10">No new users founds!</h1>;
-
-
-
 
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
@@ -57,10 +27,10 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  // if (!feed) return;
+  if (!feed) return;
 
-  // if (feed.length <= 0)
-  //   return <h1 className="flex justify-center my-10">No new users founds!</h1>;
+  if (feed.length <= 0)
+    return <h1 className="flex justify-center my-10">No new users founds!</h1>;
 
   return (
     <div className="flex justify-center mt-4 flex-col items-center">

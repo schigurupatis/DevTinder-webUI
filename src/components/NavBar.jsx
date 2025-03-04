@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 import { removeUser } from "../utils/userSlice";
-import { removeFeed } from "../utils/feedSlice";
+//import { removeFeed } from "../utils/feedSlice";
 
 const NavBar = () => {
   const user = useSelector((store) => store.user);
-  const feed = useSelector((store) => store.feed);
+  //const feed = useSelector((store) => store.feed);
 
   //console.log("data from navbar: ", user);
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const NavBar = () => {
         withCredentials: true,
       });
       dispatch(removeUser(user));
-      dispatch(removeFeed(feed));
+      //dispatch(removeFeed(feed));
       return navigate("/login");
     }catch(err) {
       console.log("Erros is:", err);

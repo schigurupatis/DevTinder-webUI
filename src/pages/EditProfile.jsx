@@ -23,6 +23,7 @@ const EditProfile = ({user}) => {
   //const navigate = useNavigate();
 
   const saveProfile = async () => {
+    setError("");
 
     try{
       const res = await axios.patch(BASE_URL + "/profile/edit", {
@@ -32,6 +33,7 @@ const EditProfile = ({user}) => {
         gender,
         about,
         skills,
+        photoURL,
       }, 
       {
         withCredentials: true,

@@ -18,6 +18,7 @@ const EditProfile = ({user}) => {
     const [photoURL, setphotoURL] = useState(user.photoURL);
     const [skills, setskills] = useState(user.skills);
     const [error, setError] = useState("");
+    const [showToast, setShowToast] = useState(false);
 
   const dispatch = useDispatch();
   //const navigate = useNavigate();
@@ -41,6 +42,10 @@ const EditProfile = ({user}) => {
     );
       console.log("LoggedIn User is in LogIn Page:", res.data);
       dispatch(addUser(res?.data?.data));
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000)
       //navigate("/")
     } catch(err) {
       setError(err?.response?.data || "something went wrong");
@@ -51,6 +56,7 @@ const EditProfile = ({user}) => {
 
 
   return (
+    <>
     <div className="flex justify-center items-center gap-5">
         <div className="flex justify-center items-center my-10"> 
         <div className="card bg-neutral text-neutral-content w-96">
@@ -88,6 +94,14 @@ const EditProfile = ({user}) => {
     </div>
     <UserCard user={{about, age, firstName, lastName, gender, photoURL, skills}} />
     </div>
+    {showToast && (
+      <div className="toast toast-top toast-center">
+  <div className="alert alert-success">
+    <span className="text-white">Profile Saved successfully.</span>
+  </div>
+</div>
+)}
+    </>
   )
 }
 

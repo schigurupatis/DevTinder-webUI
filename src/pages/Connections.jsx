@@ -31,8 +31,8 @@ const Connections = () => {
   return (
     <>
         <h1 className='text-center text-2xl'>Connections</h1>
-        {connections.map((connection) => (
-            <>
+        {connections.map((connection) => {
+            return (
                 <div className="card card-side bg-base-100 shadow-sm" key={connection.id}>
                     <figure>
                         <img
@@ -46,8 +46,8 @@ const Connections = () => {
                         <p>{connection.about}</p>
                     </div>
                 </div>
-            </>
-        )
+            )
+        }
         )}
     </>
   )

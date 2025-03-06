@@ -46,6 +46,12 @@
 ## PART - 4
 
 - See all my connections list(existing Connections - page)
+  -- Created ConnectionsSlice with add & remove connection reducers
   -- Fetch existing connections of loggedin user using useEffect hook
+  -- Storing connections in Store
   -- Render with user card design with array map method
 - See all Requests received from other users(New Requestes - page) 
+  -- Created RequestSlice with add & remove Request reducers
+  -- Fetch requests of logggedin user using useEffect hook
+  -- Storing requests in store
+  -- Render the requests with new ui design

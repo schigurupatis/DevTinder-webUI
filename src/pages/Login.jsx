@@ -23,7 +23,7 @@ const Login = () => {
         withCredentials: true,
       }
     );
-      console.log("LoggedIn User is in LogIn Page:", res.data);
+      //console.log("LoggedIn User is in LogIn Page:", res.data);
       dispatch(addUser(res.data));
       return navigate("/")
     } catch(err) {

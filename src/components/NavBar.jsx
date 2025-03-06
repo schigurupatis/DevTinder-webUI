@@ -54,11 +54,43 @@ const NavBar = () => {
         <li>
           <Link to="/profile" className="justify-between">
             Profile
-            <span className="badge">New</span>
+            <span className="badge">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="fill-current">
+                <path d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 12c-4.4 0-8 3.6-8 8h16c0-4.4-3.6-8-8-8z"></path>
+              </svg>
+            </span>
           </Link>
         </li>
-        {/* <li><Link to="/edit">Edit</Link></li> */}
-        <li><Link onClick={handleLogout}>Logout</Link></li>
+        <li>
+          <Link to="/connections" className="justify-between">
+            Connections
+          </Link>
+        </li>
+        <li>
+          <Link to="/requests" className="justify-between">
+            Requests
+          </Link>
+        </li>
+        <li>
+          <Link onClick={handleLogout}>
+            Logout
+            <span className="badge">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="fill-current">
+                <path d="M16 17l5-5-5-5v3H9v4h7v3zM4 4h9V2H4C2.9 2 2 2.9 2 4v16c0 1.1.9 2 2 2h9v-2H4V4z"></path>
+              </svg>
+            </span>
+          </Link>
+        </li>
       </ul>
       </>
     )}

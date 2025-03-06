@@ -38,5 +38,14 @@
 - Created Feed component to show data of all users
 - Stored Feed data in Redux
 - Edit Profile component created with form fields & onload prefilled current loggedin user data
-- 
-- Worked with PUT
+- Worked with PATCH Api for Editing or Updating profile data
+- Show toast message on saving profile data
+
+
+
+## PART - 4
+
+- See all my connections list(existing Connections - page)
+  -- Fetch existing connections of loggedin user using useEffect hook
+  -- Render with user card design with array map method
+- See all Requests received from other users(New Requestes - page) 

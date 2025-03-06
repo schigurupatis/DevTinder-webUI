@@ -32,18 +32,19 @@ const Connections = () => {
     <>
         <h1 className='text-center text-2xl'>Connections</h1>
         {connections.map((connection) => {
+            const {firstName, lastName, about, photoURL, age, gender} = connection;
             return (
                 <div className="card card-side bg-base-100 shadow-sm" key={connection.id}>
                     <figure>
                         <img
-                        src={connection.photoURL}
-                        alt={connection.firstName} />
+                        src={photoURL}
+                        alt={firstName + " " + lastName} />
                     </figure>
                     <div className="card-body">
-                        <h2 className="card-title">{connection.firstName}</h2>
-                        <p>{connection.age}</p>
-                        <p>{connection.gender}</p>
-                        <p>{connection.about}</p>
+                        <h2 className="card-title">{firstName}</h2>
+                        <p>{age}</p>
+                        <p>{gender}</p>
+                        <p>{about}</p>
                     </div>
                 </div>
             )

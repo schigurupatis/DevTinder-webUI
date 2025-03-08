@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { addConnections } from "../utils/connectionsSlice";
 
 const Connections = () => {
+
   const connections = useSelector((store) => store.connections);
   const dispatch = useDispatch();
+
   const fetchConnections = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/connections", {
@@ -36,7 +38,7 @@ const Connections = () => {
           connection;
 
         return (
-          <div className="card card-side bg-base-300 shadow-md p-2 my-3 flex justify-start items-center" key={_id}>
+          <div className="card card-side bg-base-300 shadow-md p-2 my-6 flex justify-start items-center" key={_id}>
             <figure className="c-p-img">
               <img
                 src={photoURL}
@@ -45,7 +47,7 @@ const Connections = () => {
 
               />
             </figure>
-            <div className="card-body text-left p-0 ps-5">
+            <div className="card-body text-left p-0 px-5">
               <h2 className="card-title">{firstName + " " + lastName} </h2>
               <h6>{gender + " " + age} </h6>
               <p>{about}</p>

@@ -2,13 +2,25 @@ import axios from "axios"
 import { BASE_URL } from "../utils/constants"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests } from "../utils/requestSlice";
+import { addRequests, removeRequest } from "../utils/requestSlice";
 
 
 const Requests = () => {
 
   const requests = useSelector((store) => store.requests);
   const dispatch = useDispatch();
+
+  const reviewRequest = async (status, _id) => {
+    try {
+      const res = await axios.post(BASE_URL + "/request/review/" + status + "/" + _id, 
+      {}, 
+      { withCredentials: true }
+      );
+      dispatch(removeRequest(_id));
+    } catch(err) {
+      console.log(err);
+    }
+  }
 
   const fetchRequests = async () => {
 
@@ -28,7 +40,7 @@ const Requests = () => {
   }, [])
 
   if(!requests) return;
-  if(requests.length === 0) return <h1>No Requests Found</h1>
+  if(requests.length === 0) return <h1 className="text-3xl flex justify-center my-10">No Requests Found</h1>
 
 
   return (
@@ -49,16 +61,16 @@ const Requests = () => {
 
               />
             </figure>
-            <div className="card-body text-left p-0 gap-0">
-              <h2 className="card-title mb-0">{firstName + " " + lastName} </h2>
+            <div className="card-body text-center p-0 gap-0 md:text-left">
+              <h2 className="card-title mb-0 block md:flex">{firstName + " " + lastName} </h2>
               <small className="mb-2">{gender + " " + age} </small>
               <p>{about.length > 100 ? about.substring(0, 70) + "..." : about}</p>
             </div>
             <div className="card-actions justify-end">
-              <button className="btn btn-success text-white">
+              <button className="btn btn-success text-white" onClick={() => reviewRequest("accepted", request._id)}>
                 Accept
               </button>
-              <button className="btn btn-error text-white">
+              <button className="btn btn-error text-white" onClick={() => reviewRequest("rejected", request._id)}>
                 Reject
               </button>
             </div>

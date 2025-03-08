@@ -28,7 +28,7 @@ const Connections = () => {
 
   if (!connections) return;
 
-  if (connections.length === 0) return <h1> No Connections Found</h1>;
+  if (connections.length === 0) return <h1 className="text-3xl flex justify-center my-10"> No Connections Found</h1>;
 
   return (
     <div className="text-center my-20">
@@ -49,8 +49,8 @@ const Connections = () => {
 
               />
             </figure>
-            <div className="card-body text-left p-0 gap-0">
-              <h2 className="card-title mb-0">{firstName + " " + lastName} </h2>
+            <div className="card-body text-center p-0 gap-0 md:text-left">
+              <h2 className="card-title mb-0 block md:flex">{firstName + " " + lastName} </h2>
               <small className="mb-2">{gender + " " + age} </small>
               <p>{about.length > 100 ? about.substring(0, 100) + "..." : about}</p>
             </div>

@@ -55,3 +55,13 @@
   -- Fetch requests of logggedin user using useEffect hook
   -- Storing requests in store
   -- Render the requests with new ui design
+  -- Accepted and Rejected Request 
+
+
+
+## PART - 5
+
+- Accept or Ignore the usercard from feed
+  -- if Accepted or Rejected for perticular userId then removing that userId from feed alwell as from redux store also
+- Signup new user
+- End to End testing entire application

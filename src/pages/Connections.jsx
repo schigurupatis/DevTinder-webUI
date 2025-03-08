@@ -11,6 +11,7 @@ const Connections = () => {
   const dispatch = useDispatch();
 
   const fetchConnections = async () => {
+
     try {
       const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
@@ -36,9 +37,10 @@ const Connections = () => {
       {connections.map((connection) => {
         const { _id, firstName, lastName, photoURL, age, gender, about } =
           connection;
+          //const setAbout = about.trim
 
         return (
-          <div className="card card-side bg-base-300 shadow-md p-2 my-6 flex justify-start items-center" key={_id}>
+          <div className="card card-side bg-base-300 shadow-md p-2 my-6 gap-3 flex flex-col md:flex-row justify-start items-center" key={_id}>
             <figure className="c-p-img">
               <img
                 src={photoURL}
@@ -47,10 +49,10 @@ const Connections = () => {
 
               />
             </figure>
-            <div className="card-body text-left p-0 px-5">
-              <h2 className="card-title">{firstName + " " + lastName} </h2>
-              <h6>{gender + " " + age} </h6>
-              <p>{about}</p>
+            <div className="card-body text-left p-0 gap-0">
+              <h2 className="card-title mb-0">{firstName + " " + lastName} </h2>
+              <small className="mb-2">{gender + " " + age} </small>
+              <p>{about.length > 100 ? about.substring(0, 100) + "..." : about}</p>
             </div>
           </div>
         );

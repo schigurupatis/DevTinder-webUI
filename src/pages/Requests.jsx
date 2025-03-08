@@ -11,6 +11,7 @@ const Requests = () => {
   const dispatch = useDispatch();
 
   const fetchRequests = async () => {
+
     try {
       const res = await axios.get(BASE_URL + "/user/requests/received/", {
         withCredentials: true,
@@ -39,7 +40,7 @@ const Requests = () => {
           request.fromUserId;
 
         return (
-          <div className="card card-side bg-base-300 shadow-md p-2 my-6 flex justify-start items-center" key={_id}>
+          <div className="card card-side bg-base-300 shadow-md p-2 my-6 gap-3 flex flex-col md:flex-row justify-start items-center" key={_id}>
             <figure className="c-p-img">
               <img
                 src={photoURL}
@@ -48,14 +49,18 @@ const Requests = () => {
 
               />
             </figure>
-            <div className="card-body text-left p-0 px-5">
-              <h2 className="card-title">{firstName + " " + lastName} </h2>
-              <h6>{gender + " " + age} </h6>
-              <p>{about}</p>
+            <div className="card-body text-left p-0 gap-0">
+              <h2 className="card-title mb-0">{firstName + " " + lastName} </h2>
+              <small className="mb-2">{gender + " " + age} </small>
+              <p>{about.length > 100 ? about.substring(0, 70) + "..." : about}</p>
             </div>
             <div className="card-actions justify-end">
-              <button className="btn btn-success">Accept</button>
-              <button className="btn btn-error">Reject</button>
+              <button className="btn btn-success text-white">
+                Accept
+              </button>
+              <button className="btn btn-error text-white">
+                Reject
+              </button>
             </div>
           </div>
         );

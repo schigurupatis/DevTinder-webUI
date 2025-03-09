@@ -36,8 +36,8 @@ const Registration = () => {
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
+        return navigate("/login")
       }, 3000)
-      return navigate("/login")
     } catch(err) {
       setError(err?.response?.data || "something went wrong");
     }

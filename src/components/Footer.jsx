@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const Footer = () => {
   return (
     <>
-        <footer className="footer bg-base-300 text-neutral-content items-center p-4 px-10 fixed bottom-0">
+        <footer className="footer bg-base-300 text-neutral-content items-center p-4 px-10 relative md:fixed bottom-0">
   <aside className="grid-flow-col items-center">
     {/* <p>Copyright © {new Date().getFullYear()} - All right reserved</p> */}
     <p>Designed & Developed by <Link to="https://www.linkedin.com/in/schigurupatis/" target="_blank" className="text-error">Santha Kumar Chigurupati</Link> for Educational purpose only</p>

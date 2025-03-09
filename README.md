@@ -63,5 +63,5 @@
 
 - Accept or Ignore the usercard from feed
   -- if Accepted or Rejected for perticular userId then removing that userId from feed alwell as from redux store also
-- Signup new user
+- Signup page with firstname, lastname, email, password fields created and validation for new user
 - End to End testing entire application

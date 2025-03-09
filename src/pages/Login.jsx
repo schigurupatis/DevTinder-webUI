@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [emailId, setEmailId] = useState("kumar2@gmail.com");
@@ -67,7 +68,10 @@ const Login = () => {
    </div>
    <p className="text-error">{error}</p>
     <div className="flex justify-center w-full">
-      <button className="btn btn-primary w-full" onClick={handleLogin}>LogIn</button>
+      <button className="btn btn-primary w-full text-white" onClick={handleLogin}>LogIn</button>
+    </div>
+    <div className="flex justify-center w-full mt-5">
+      <p>Dont have Account <Link to="/registration" className="text-red-500">Register</Link> Now</p>
     </div>
   </div>
 </div>

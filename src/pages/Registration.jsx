@@ -1,7 +1,5 @@
 import { useState } from "react"
 import axios from "axios";
-// import { useDispatch } from "react-redux";
-// import { newUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
@@ -15,7 +13,6 @@ const Registration = () => {
   const [showPwd, setShowPwd] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [error, setError] = useState("");
-  //const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleRegister = async () => {
@@ -31,8 +28,6 @@ const Registration = () => {
         withCredentials: true,
       }
     );
-      //console.log("Register User is in Reg Page:", res.data);
-      //dispatch(newUser(res.data));
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);

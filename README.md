@@ -64,4 +64,29 @@
 - Accept or Ignore the usercard from feed
   -- if Accepted or Rejected for perticular userId then removing that userId from feed alwell as from redux store also
 - Signup page with firstname, lastname, email, password fields created and validation for new user
+- Successful registration showing toast message as success then redicting to login page
 - End to End testing entire application
+
+
+
+## Episode - 01 Launching AWS Instance & FrontEnd Deployment
+
+- Signup on aws
+- Launch Instace
+- chmod 400 <your-secret-key>.pem
+- Connected to AWS Server using SSH Command
+  -- ssh -i "DevTinder-Secret.pem" ubuntu@ec2-13-60-156-175.eu-north-1.compute.amazonaws.com
+- Installed correct node version that im using locally is(v20.18.0), same version on aws server also v20.18.0
+- Git Cloned from my github repo FrontEnd(DevTinder-WebUI)
+- Git Cloned from my github repo BackEnd(DevTinder)
+  -- so now in my ubunto remote repo now i have both FrontEnd & BackEnd
+- FrontEnd folder => cd DevTinder-webUI in server(AWS Console)
+  -- installed dependencies (npm install)
+  -- then npm run build for creating build file for production ready
+- Now for FrontEnd Deployment
+  -- NginX command for updates "sudo apt update"
+  -- NginX command for installation "sudo apt install nginx"
+  -- NginX command for Starting server "sudo systemctl start nginx"
+  -- NginX command for Enabling server "sudo systemctl enable nginx"
+  -- Now copy code from dist folder(build file) to /var/www/html/  using "sudo scp -r dist/* /var/www/html/"
+  -- Enable port 80 of my instance in AWS Console

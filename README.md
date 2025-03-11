@@ -83,10 +83,16 @@
 - FrontEnd folder => cd DevTinder-webUI in server(AWS Console)
   -- installed dependencies (npm install)
   -- then npm run build for creating build file for production ready
-- Now for FrontEnd Deployment
+- FrontEnd Deployment
   -- NginX command for updates "sudo apt update"
   -- NginX command for installation "sudo apt install nginx"
   -- NginX command for Starting server "sudo systemctl start nginx"
   -- NginX command for Enabling server "sudo systemctl enable nginx"
   -- Now copy code from dist folder(build file) to /var/www/html/  using "sudo scp -r dist/* /var/www/html/"
   -- Enable port 80 of my instance in AWS Console
+- BackEnd Deployment
+  -- install node on this backend folder "DevTinder" via teminal
+  -- "npm run start" with this connected to DataBase & server listening successfully
+  -- install "pm2" process manager npm package "npm install pm2 -g" to run server 24x7
+  -- pm2 start npm -- start
+  -- 

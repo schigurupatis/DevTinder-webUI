@@ -90,9 +90,48 @@
   -- NginX command for Enabling server "sudo systemctl enable nginx"
   -- Now copy code from dist folder(build file) to /var/www/html/  using "sudo scp -r dist/* /var/www/html/"
   -- Enable port 80 of my instance in AWS Console
+
+
+
+## Episode - 02 Nginx & Backend Node App Deployment
+
 - BackEnd Deployment
   -- install node on this backend folder "DevTinder" via teminal
   -- "npm run start" with this connected to DataBase & server listening successfully
   -- install "pm2" process manager npm package "npm install pm2 -g" to run server 24x7
-  -- pm2 start npm -- start
-  -- 
+  -- npm install pm2 -g
+  -- "pm2 start npm -- start"
+  -- pm2 logs
+  -- pm2 list, pm2 stop <name>, pm2 delete <name>
+  -- pm2 start npm --name "DevTinder-backend" -- start
+
+    FrontEnd = http://15.207.222.94/
+    BackEnd  = http://15.207.222.94:7777/
+
+    if we add a custom domain name as devtinder.com then
+
+    FrontEnd = http://www.devtinder.com/
+    BackEnd  = http://www.devtinder.com:7777/    => http://www.devtinder.com/api/
+
+    # Nginx Config
+      - Nginx proxy pass for mapping portnumber 7777 to /api/
+      - to get nginx config file use chatgpt query as: nginx proxy pass map path of /api to 7777 node application
+      - nginx config server_name http://15.207.222.94/
+      - config nginx and for this command is 
+          -- sudo nano /etc/nginx
+          -- ls -l /etc/nginx
+          -- ls -l /etc/nginx/sites-available/
+          -- sudo nano /etc/nginx/nginx.conf
+          -- sudo nano /etc/nginx/sites-available/default
+
+          then we need to add below code in nginx config file below the "sever name" line   
+            location /api/ {
+                proxy_pass http://localhost:7777/;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+            }
+          - now restart nginx using "sudo systemctl restart nginx"
+          - 
+    

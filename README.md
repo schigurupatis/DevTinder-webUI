@@ -133,5 +133,7 @@
                 proxy_set_header X-Forwarded-Proto $scheme;
             }
           - now restart nginx using "sudo systemctl restart nginx"
-          - 
+  -- Modify the base url in frontend project constants file as
+      from ==> export const BASE_URL = "http://localhost:7777";
+      to   ==> export const BASE_URL = "/api";
     

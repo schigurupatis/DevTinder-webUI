@@ -144,9 +144,11 @@
 
 - Goto Godaddy.com
 - purchased a custom domain 
-- go to dashboard in godaddy.com
-  -- go to products
-  -- DNS Management
-  -- 
+- signup on cloudflare.com & add this domain name here
+- change the name servers on godaddy & point it to cloudflare
+- wait for some time till my nameservers updated
+- go to DNS management in cloudflare
+- DNS section remove existing "A name records those are pointing to some random ip's"
+- add new "A Record" with devstinder name with ip address
 
     

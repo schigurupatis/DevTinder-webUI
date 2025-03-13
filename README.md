@@ -136,4 +136,17 @@
   -- Modify the base url in frontend project constants file as
       from ==> export const BASE_URL = "http://localhost:7777";
       to   ==> export const BASE_URL = "/api";
+
+
+
+
+## Episode - 03 Adding a Custom Domain Name
+
+- Goto Godaddy.com
+- purchased a custom domain 
+- go to dashboard in godaddy.com
+  -- go to products
+  -- DNS Management
+  -- 
+
     

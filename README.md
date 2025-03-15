@@ -150,5 +150,24 @@
 - go to DNS management in cloudflare
 - DNS section remove existing "A name records those are pointing to some random ip's"
 - add new "A Record" with devstinder name with ip address
+- now devstinder.com is working fine
+- Enable SSL as Flexible
+- Edge certificate enable "Automatic HTTPS Rewrites"
+
+
+
+
+## Episode - 04 Sending Emails using Amazon SES
+
+- goto AWS SES console page
+- goto IAM
+  -- create a new user & click next
+  -- select "attach policies directly"
+  -- search "amazonsesfullaccess" select & next
+  -- finally click "createuser"
+- now goto main dashboard console then search "ses"
+- 
+
+
 
     

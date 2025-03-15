@@ -166,7 +166,36 @@
   -- search "amazonsesfullaccess" select & next
   -- finally click "createuser"
 - now goto main dashboard console then search "ses"
-- 
+- follow instructions
+  -- setup email verification
+  -- setup domain verification
+  -- request for production access
+- now goto IAM in main console
+  -- create security access key for sending emails
+  -- select "other" then create access key
+- COPY access key & secret key to devtinder-backend .env file
+- now search on google as "sending emails aws ses using node"
+- follow instructions
+  -- get started with nodejs
+  -- goto aws ses
+  -- sending email
+  -- create sesClient.js file in backend utils folder as below
+      // snippet-start:[ses.JavaScript.createclientv3]
+      //import { SESClient } from "@aws-sdk/client-ses";
+      const { SESClient } = require("@aws-sdk/client-ses");
+      // Set the AWS Region.
+      const REGION = "us-east-1";
+      // Create SES service object.
+      const sesClient = new SESClient({ region: REGION, credentials: {
+              accessKeyId: AWS_ACCESS_KEY,
+              secretAccessKey: AWS_SECRET_KEY,
+          },
+      });
+      //export { sesClient };
+      module.exports = { sesClient };
+      // snippet-end:[ses.JavaScript.createclientv3]
+  --
+
 
 
 
